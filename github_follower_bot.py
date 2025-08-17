@@ -3,7 +3,7 @@ import requests
 TOKEN = "ghp_****"  # Put Your Token GitHub Here
 HEADERS = {"Authorization": f"token {TOKEN}"}
 
-def search_users(keyword, pages=2, per_page=100):
+def search_users(keyword, pages=1, per_page=100):
     users = []
     for page in range(1, pages + 1):
         url = f"https://api.github.com/search/users?q={keyword}&per_page={per_page}&page={page}"
@@ -22,7 +22,7 @@ def follow_user(username):
 
 if __name__ == "__main__":
     keyword = input("🔍 Enter keyword (e.g., react, python): ")
-    users = search_users(keyword, pages=5, per_page=100)  # ۵۰۰ کاربر
+    users = search_users(keyword, pages=1, per_page=100)  # ۵۰۰ کاربر
     print(f"Found {len(users)} users")
     
     for user in users:
